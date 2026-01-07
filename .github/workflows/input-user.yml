@@ -54,3 +54,11 @@ jobs:
           echo "🖥️  Runner            : $RUNNER_OS"
           echo ""
           echo "=============================================="
+
+      - name: Criar summary
+        run: |
+          echo "## ✅ Ação concluída com sucesso" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- 👤 Usuário: **${{ inputs.usuario }}**" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔐 Senha: **Protegida**" >> $GITHUB_STEP_SUMMARY
+          echo "- 🚀 Status: **OK**" >> $GITHUB_STEP_SUMMARY
