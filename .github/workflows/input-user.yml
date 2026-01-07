@@ -38,3 +38,19 @@ jobs:
             echo "Usuario invalido"
             exit 1
           fi
+
+      - name: Finalizar com sucesso
+        run: |
+          echo ""
+          echo "=============================================="
+          echo "✅  AÇÃO CONCLUÍDA COM SUCESSO!"
+          echo "=============================================="
+          echo ""
+          echo "👤 Usuário informado : ${{ inputs.usuario }}"
+          echo "🔐 Senha             : ********"
+          echo ""
+          echo "🚀 O ambiente foi processado corretamente."
+          echo "📅 Data              : $(date)"
+          echo "🖥️  Runner            : $RUNNER_OS"
+          echo ""
+          echo "=============================================="
