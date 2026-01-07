@@ -1,0 +1,40 @@
+name: Simulacao - Inserir Usuario e Senha
+
+on:
+  workflow_dispatch:
+    inputs:
+      usuario:
+        description: "Nome do usuario"
+        required: true
+        type: string
+
+      senha:
+        description: "Senha do usuario"
+        required: true
+        type: string
+
+jobs:
+  simulacao:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simular aplicacao iniciando
+        env:
+          APP_USER: ${{ inputs.usuario }}
+          APP_PASSWORD: ${{ inputs.senha }}
+        run: |
+          echo "Aplicacao iniciada"
+          echo "Usuario recebido: $APP_USER"
+          echo "Senha carregada em memoria (nao sera exibida)"
+
+      - name: Simular validacao
+        env:
+          APP_USER: ${{ inputs.usuario }}
+          APP_PASSWORD: ${{ inputs.senha }}
+        run: |
+          if [ "$APP_USER" = "admin" ]; then
+            echo "Usuario valido"
+          else
+            echo "Usuario invalido"
+            exit 1
+          fi
